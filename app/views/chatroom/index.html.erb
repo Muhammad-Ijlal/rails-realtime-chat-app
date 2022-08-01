@@ -11,14 +11,14 @@
         </div>
       </div>
       <div class=" extra content">
-        <form class="ui reply form">
+        <%= form_with(model: @message, url: message_path, data: {turbo: false}, class: "ui reply form") do |f| %>
           <div class="field">
             <div class="ui fluid icon input">
-              <input type='text' placeholder='Enter a message ...'>
-              <i class="bordered inverted blue edit icon"></i>
+              <%= f.text_field :body, placeholder: 'Enter a message ...' %>
+              <%= f.submit '<i class="bordered inverted blue edit icon"></i>'.html_safe %>
             </div>
           </div>
-        </form>
+        <% end %>
       </div>
     </div>
   </div>
