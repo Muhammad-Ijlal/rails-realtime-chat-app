@@ -5,17 +5,17 @@
 <div class="ui two column grid">
   <div class="twelve wide column">
     <div class="ui fluid raised card chatbox">
-      <div class="content">
-        <div class="ui medium feed">        
+      <div class="content" id="messages">
+        <div class="ui medium feed" id="message-container">        
           <%= render @messages %>
         </div>
       </div>
       <div class=" extra content">
-        <%= form_with(model: @message, url: message_path, data: {turbo: false}, class: "ui reply form") do |f| %>
+        <%= form_with(model: @message, url: message_path, class: "ui reply form") do |f| %>
           <div class="field">
             <div class="ui fluid icon input">
               <%= f.text_field :body, placeholder: 'Enter a message ...' %>
-              <%= f.submit '<i class="bordered inverted blue edit icon"></i>'.html_safe %>
+              <%= f.submit 'Send', class: "ui blue small button" %>
             </div>
           </div>
         <% end %>
